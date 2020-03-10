@@ -23,6 +23,7 @@ import { ChildProps, TextAreaChildProps } from "../child-props";
 export interface ReactMdeProps {
   value: string;
   onChange: (value: string) => void;
+  onSuggestionSelected: (value: string) => void;
   selectedTab: "write" | "preview";
   onTabChange: (tab: "write" | "preview") => void;
   generateMarkdownPreview: GenerateMarkdownPreview;
@@ -171,6 +172,7 @@ export class ReactMde extends React.Component<ReactMdeProps, ReactMdeState> {
       selectedTab,
       generateMarkdownPreview,
       loadSuggestions,
+      onSuggestionSelected,
       suggestionTriggerCharacters
     } = this.props;
 
@@ -214,6 +216,7 @@ export class ReactMde extends React.Component<ReactMdeProps, ReactMdeState> {
             value={value}
             suggestionTriggerCharacters={suggestionTriggerCharacters}
             loadSuggestions={loadSuggestions}
+            onSuggestionSelected={onSuggestionSelected}
           />
           <div
             className={classNames("grip", classes?.grip)}
