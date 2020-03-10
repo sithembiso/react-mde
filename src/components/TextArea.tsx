@@ -33,6 +33,7 @@ export interface TextAreaProps {
   suggestionsDropdownClasses?: ClassValue;
   value: string;
   onChange: (value: string) => void;
+  onSuggestionSelected: (value: string) => void;
   editorRef?: (ref: HTMLTextAreaElement) => void;
   readOnly?: boolean;
   height?: number;
